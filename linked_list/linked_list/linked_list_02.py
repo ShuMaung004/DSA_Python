@@ -20,6 +20,35 @@ class LinkedList:
             self.tail = new_node
         self.length += 1
     
+    def prepend(self,value):
+        new_mode = Node(value)
+        if not self.head:
+            self.head = new_mode
+            self.tail = new_mode
+        else:
+            new_mode.next = self.head
+            self.head = new_mode
+        self.length += 1
+    
+    def insert(self, index, value):
+        new_node = Node(value)
+        if index < 0 or index > self.length:
+            return False
+        elif self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        elif index == 0:
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            temp_node = self.head
+            for _ in range(index - 1):
+                temp_node = temp_node.next
+            new_node.next = temp_node.next
+            temp_node = new_node
+        return True
+
+    
     def __str__(self):
         result = []
         temp_node = self.head
