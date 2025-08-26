@@ -45,7 +45,8 @@ class LinkedList:
             for _ in range(index - 1):
                 temp_node = temp_node.next
             new_node.next = temp_node.next
-            temp_node = new_node
+            # print(temp_node.value)
+            temp_node.next = new_node
         return True
 
     
@@ -60,5 +61,9 @@ class LinkedList:
 new_linked_list = LinkedList()
 new_linked_list.append(10)
 new_linked_list.append(20)
-new_linked_list.append(30)
+new_linked_list.append(40)
+new_linked_list.append(50)
+new_linked_list.insert(2,30)
 print(new_linked_list)
+
+# 10 -> 20 -> 40 -> 50
